@@ -1,0 +1,19 @@
+# Cursor IDE metadata (do not deploy)
+.cursor/
+
+# Reference site — only used as a layout inspiration during development
+neocities-lhs183019/
+
+# Original assets that were copied into assets/ (kept here as backups)
+BYTEMATEIcon.png
+ByteMate横幅.png
+gameCover.png
+gameicon.png
+magicianCN.zip
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
