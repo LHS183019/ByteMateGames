@@ -34,4 +34,21 @@
   } else {
     if (navLinks.length) navLinks[0].classList.add("active");
   }
+
+  // ── Affix detection for navbar (CSS handles brand transition) ──
+  var navbar = document.getElementById("navbar");
+  var banner = document.getElementById("banner");
+
+  if ("IntersectionObserver" in window && navbar && banner) {
+    var affixObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        navbar.classList.toggle("affix", !entry.isIntersecting);
+      });
+    }, {
+      rootMargin: "-150px 0px 0px 0px",
+      threshold: 0
+    });
+
+    affixObserver.observe(banner);
+  }
 })();

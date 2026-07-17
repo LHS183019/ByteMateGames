@@ -70,7 +70,7 @@
       "join.writing.title": "文案創作",
       "join.writing.desc":  "撰寫遊戲內對話、場景描述、世界觀文案，把策劃的框架填充成有溫度的文字。我們希望你熱愛閱讀與寫作，對文字節奏敏感，能駕馭不同的語氣與風格。無論是輕鬆的日常對白還是沉重的情感高潮，你都能找到最準確的表達方式。",
       "join.btn":  "填寫報名表 →",
-      "join.note": "報名表為外部表單連結，請替換為真實表單 URL",
+      "join.note": "英文表單：<a href=\"https://my.feishu.cn/share/base/form/shrcn1BrPQtHOZUHwWVuRhoOXZc\" target=\"_blank\">English Form</a>",
       /* contact */
       "contact.title":       "聯絡我們",
       "contact.email.label": "電郵",
@@ -143,7 +143,7 @@
       "join.writing.title": "文案创作",
       "join.writing.desc":  "撰写游戏内对话、场景描述、世界观文案，把策划的框架填充成有温度的文字。我们希望你热爱阅读与写作，对文字节奏敏感，能驾驭不同的语气与风格。无论是轻松的日常对白还是沉重的情感高潮，你都能找到最准确的表达方式。",
       "join.btn":  "填写报名表 →",
-      "join.note": "报名表为外部表单链接，请替换为真实表单 URL",
+      "join.note": "英文表单：<a href=\"https://my.feishu.cn/share/base/form/shrcn1BrPQtHOZUHwWVuRhoOXZc\" target=\"_blank\">English Form</a>",
       /* contact */
       "contact.title":       "联系我们",
       "contact.email.label": "邮箱",
@@ -216,7 +216,7 @@
       "join.writing.title": "Localization Writer",
       "join.writing.desc":  "Translate our narrative-driven game into multiple languages, ensuring the tone, humor, and emotional resonance of the original Chinese text is faithfully adapted. We expect native or near-native fluency in at least one language, a love of wordplay, and the ability to capture the subtleties of dialogue and prose across cultural contexts.",
       "join.btn":  "Fill in the Application →",
-      "join.note": "The application form is an external link — replace with the actual form URL",
+      "join.note": "中文表单：<a href=\"https://my.feishu.cn/share/base/form/shrcnfjhhxg9oaw1O0RC3HDv1Jh\" target=\"_blank\">中文表格</a>",
       /* contact */
       "contact.title":       "Contact",
       "contact.email.label": "Email",
