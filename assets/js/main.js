@@ -52,6 +52,41 @@
     affixObserver.observe(banner);
   }
 
+  // ── Mobile hamburger toggle ──
+  var navToggle = document.getElementById("nav-toggle");
+  var navMenu = document.getElementById("nav-menu");
+
+  if (navToggle && navMenu) {
+    function setMenu(open) {
+      navMenu.classList.toggle("open", open);
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "關閉選單" : "開啟選單");
+    }
+
+    navToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setMenu(!navMenu.classList.contains("open"));
+    });
+
+    // Close when a nav link is tapped
+    navMenu.querySelectorAll(".nav-link").forEach(function (link) {
+      link.addEventListener("click", function () { setMenu(false); });
+    });
+
+    // Close when tapping outside
+    document.addEventListener("click", function (e) {
+      if (!navMenu.classList.contains("open")) return;
+      if (navMenu.contains(e.target) || navToggle.contains(e.target)) return;
+      setMenu(false);
+    });
+
+    // Close on resize to desktop breakpoint
+    var mq = window.matchMedia("(min-width: 721px)");
+    var handleMq = function (ev) { if (ev.matches) setMenu(false); };
+    if (mq.addEventListener) mq.addEventListener("change", handleMq);
+    else if (mq.addListener) mq.addListener(handleMq);
+  }
+
   // ── Game Carousel ──
   function initCarousel() {
     var carousel = document.querySelector(".game-carousel");

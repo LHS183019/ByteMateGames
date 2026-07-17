@@ -29,6 +29,10 @@
     scroll-behavior: smooth;
     scroll-padding-top: 78px;
   }
+
+  @media (max-width: 720px) {
+    html { scroll-padding-top: 64px; }
+  }
   
   body {
     margin: 0;
@@ -232,6 +236,10 @@
   }
   .nav-left  { justify-content: flex-end; }
   .nav-right { justify-content: flex-start; }
+
+  /* Hamburger toggle is mobile-only by default */
+  .nav-toggle { display: none; }
+  .nav-menu { display: contents; }
   
   .nav-link {
     display: inline-block;
@@ -820,25 +828,143 @@
     .lang-switcher {
       top: 10px;
       right: 14px;
-      padding: 4px 10px;
+      padding: 4px 6px;
+      gap: 6px;
     }
-    .lang-btn { font-size: 11px; padding: 2px 3px; }
+    /* ≥44x44pt touch target via padding; visual font stays compact */
+    .lang-btn {
+      font-size: 12px;
+      padding: 10px 6px;
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lang-sep { font-size: 11px; }
 
     .banner-img-wrap { aspect-ratio: auto; max-height: 50vh; }
-    .banner-img { object-fit: contain; opacity: 0.65; }
-    .banner-title { letter-spacing: 0.12em; }
+    .banner-img { object-fit: contain; opacity: 0.22; }
+    .banner-title { letter-spacing: 0.12em; font-size: clamp(34px, 10vw, 56px); }
+    .banner-mono { letter-spacing: 0.28em; }
 
-    .social-icons { top: 12px; right: 12px; gap: 8px; }
-    .social-icons a { width: 34px; height: 34px; }
+    .social-icons { top: 64px; right: 14px; gap: 10px; }
+    /* ≥44x44pt touch target */
+    .social-icons a { width: 44px; height: 44px; }
 
-    .navbar { position: static; }
+    /* Keep navbar sticky so brand icon / text stay visible */
+    .navbar {
+      position: sticky;
+      top: 0;
+      height: 72px;
+    }
+    .navbar.affix { height: 72px; }
     .navbar-inner {
-      grid-template-columns: 1fr 100px 1fr;
+      grid-template-columns: 1fr;
+      padding: 0 16px;
+      gap: 0;
+      justify-items: stretch;
+      position: relative;
+    }
+
+    /* Hamburger toggle button — 44x44 touch target */
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 0;
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 110;
+    }
+    .nav-toggle:hover { border-color: var(--gold); }
+    .nav-toggle-bar {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--gold);
+      transition: transform 220ms var(--ease-out), opacity 220ms;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Brand: centered horizontally above the menu */
+    .brand-col {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      height: 100%;
+      pointer-events: none;
+    }
+    .brand { pointer-events: auto; }
+    .brand-img {
+      width: 44px;
+      height: 44px;
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: none;
+    }
+    .brand-text { display: none; }
+
+    /* Slide-down menu panel */
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 320ms var(--ease-out);
+      display: flex;
+      flex-direction: column;
       padding: 0 16px;
     }
-    .nav-side { justify-content: center; flex-wrap: wrap; gap: 16px; padding: 0 10px; }
-    .nav-link { font-size: 11px; padding: 6px 2px; }
-    .brand-img { width: 50px; height: 50px; }
+    .nav-menu.open { max-height: 80vh; padding: 12px 16px 20px; }
+
+    .nav-side {
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+      width: 100%;
+    }
+    .nav-side li { width: 100%; border-bottom: 1px solid var(--line); }
+    .nav-side li:last-child { border-bottom: none; }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      padding: 14px 4px;
+      width: 100%;
+      min-height: 48px; /* ≥48dp Android touch target */
+    }
+    .nav-link::after { display: none; }
+
     .section { padding: 60px 0 56px; }
     .game-card { padding: 20px; }
     .game-icon-corner { width: 64px; height: 64px; bottom: 8px; right: 8px; }

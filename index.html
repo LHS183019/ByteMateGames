@@ -34,25 +34,33 @@
   <!-- ── Navbar: brand icon isolated in its own vertical lane ── -->
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="navbar-inner">
-      <ul class="nav-side nav-left" role="list">
-        <li><a class="nav-link active" href="#about" data-i18n="nav.about">工作室簡介</a></li>
-        <li><a class="nav-link" href="#works" data-i18n="nav.works">作品集</a></li>
-      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
 
-      <div class="brand-col" id="brand-col">
-        <a class="brand brand-scrolled" href="#top" aria-label="回到頂部">
-          <img src="assets/icon.png" alt="ByteMate Icon" class="brand-img brand-img-scrolled" />
-          <div class="brand-text">
-            <span class="brand-title">ByteMate</span>
-            <span class="brand-subtitle">Indie Game Studio</span>
-          </div>
-        </a>
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-side nav-left" role="list">
+          <li><a class="nav-link active" href="#about" data-i18n="nav.about">工作室簡介</a></li>
+          <li><a class="nav-link" href="#works" data-i18n="nav.works">作品集</a></li>
+        </ul>
+
+        <div class="brand-col" id="brand-col">
+          <a class="brand brand-scrolled" href="#top" aria-label="回到頂部">
+            <img src="assets/icon.png" alt="ByteMate Icon" class="brand-img brand-img-scrolled" />
+            <div class="brand-text">
+              <span class="brand-title">ByteMate</span>
+              <span class="brand-subtitle">Indie Game Studio</span>
+            </div>
+          </a>
+        </div>
+
+        <ul class="nav-side nav-right" role="list">
+          <li><a class="nav-link" href="#team" data-i18n="nav.team">工作室成員</a></li>
+          <li><a class="nav-link" href="#contact" data-i18n="nav.contact">聯絡我們</a></li>
+        </ul>
       </div>
-
-      <ul class="nav-side nav-right" role="list">
-        <li><a class="nav-link" href="#team" data-i18n="nav.team">工作室成員</a></li>
-        <li><a class="nav-link" href="#contact" data-i18n="nav.contact">聯絡我們</a></li>
-      </ul>
     </div>
   </nav>
 
