@@ -12,9 +12,9 @@
 
   <!-- ── Language Switcher — top-right, fixed ── -->
   <div class="lang-switcher" aria-label="選擇語言">
-    <button class="lang-btn active" data-lang="zh-TW">繁</button>
-    <span class="lang-sep" aria-hidden="true">|</span>
     <button class="lang-btn" data-lang="zh-CN">简</button>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <button class="lang-btn active" data-lang="zh-TW">繁</button>
     <span class="lang-sep" aria-hidden="true">|</span>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
@@ -72,9 +72,9 @@
           <h3 data-i18n="about.do.title">我們做什麼</h3>
           <p data-i18n="about.do.p1">我們專注於<strong>重敘事、卡牌、解謎</strong>類型的獨立遊戲。我們相信好的故事與獨特的玩法同樣重要，每一次出牌、每一次選擇，都應讓玩家記住。</p>
           <ul class="bullet-list">
-            <li data-i18n="about.do.bullet1">原創 IP 與原創玩法設計</li>
-            <li data-i18n="about.do.bullet2">敘事驅動的單機體驗</li>
-            <li data-i18n="about.do.bullet3">從原型到發佈的全流程實踐</li>
+            <li data-i18n="about.do.bullet1">原創 IP 和世界觀</li>
+            <li data-i18n="about.do.bullet2">原創玩法設計</li>
+            <li data-i18n="about.do.bullet3">敘事驅動的單機體驗</li>
           </ul>
         </div>
       </div>
@@ -87,7 +87,21 @@
 
       <article class="game-card">
         <div class="game-media">
-          <img src="assets/gameCover.png" alt="《北大最強塔羅師》封面圖" class="game-cover" />
+          <div class="game-carousel">
+            <div class="carousel-track">
+              <img src="assets/gameCover.png" alt="《北大最強塔羅師》截圖 1" class="game-cover" />
+              <img src="assets/gameCover7.png" alt="《北大最強塔羅師》截圖 6" class="game-cover" />
+              <img src="assets/gameCover6.png" alt="《北大最強塔羅師》截圖 2" class="game-cover" />
+              <img src="assets/gameCover3.png" alt="《北大最強塔羅師》截圖 3" class="game-cover" />
+              <img src="assets/gameCover5.png" alt="《北大最強塔羅師》截圖 7" class="game-cover" />
+              <img src="assets/gameCover4.png" alt="《北大最強塔羅師》截圖 4" class="game-cover" />
+              <img src="assets/gameCover2.png" alt="《北大最強塔羅師》截圖 5" class="game-cover" />
+              <!-- 添加更多截图到这个轮播中 -->
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="上一张">‹</button>
+            <button class="carousel-btn carousel-next" aria-label="下一张">›</button>
+            <div class="carousel-dots"></div>
+          </div>
           <img src="assets/gameicon.png"  alt="《北大最強塔羅師》圖標"  class="game-icon-corner" />
         </div>
         <div class="game-info">
@@ -128,21 +142,21 @@
       <div class="section-line"></div>
       <div class="member-grid">
         <article class="member-card">
-          <div class="member-portrait" aria-hidden="true"><span>A</span></div>
+          <div class="member-portrait"><img src="assets/avatar-a.png" alt="成员 A" /></div>
           <h3 class="member-name" data-i18n="team.a.name">成員 A</h3>
           <p class="member-role" data-i18n="team.a.role">策劃</p>
           <p class="member-hobby" data-i18n="team.a.hobby">愛好：桌遊 / 影視 / 寫作</p>
           <p class="member-bio" data-i18n="team.a.bio">負責玩法框架與敘事設計，喜歡把奇思妙想變成可玩的關卡。</p>
         </article>
         <article class="member-card">
-          <div class="member-portrait" aria-hidden="true"><span>B</span></div>
+          <div class="member-portrait"><img src="assets/avatar-b.png" alt="成員 B" /></div>
           <h3 class="member-name" data-i18n="team.b.name">成員 B</h3>
           <p class="member-role" data-i18n="team.b.role">程序</p>
           <p class="member-hobby" data-i18n="team.b.hobby">愛好：電子音樂 / 程式競賽 / 貓</p>
           <p class="member-bio" data-i18n="team.b.bio">負責引擎與工具鏈搭建，把策劃的腦洞變成實際運行起來的程式碼。</p>
         </article>
         <article class="member-card">
-          <div class="member-portrait" aria-hidden="true"><span>C</span></div>
+          <div class="member-portrait"><img src="assets/avatar-c.png" alt="成員 C" /></div>
           <h3 class="member-name" data-i18n="team.c.name">成員 C</h3>
           <p class="member-role" data-i18n="team.c.role">美術</p>
           <p class="member-hobby" data-i18n="team.c.hobby">愛好：插畫 / 動畫 / 膠片攝影</p>
@@ -206,13 +220,15 @@
         </div>
         <div class="contact-card contact-qr">
           <h3 class="contact-label" data-i18n="contact.qr.label">小紅書玩家交流群</h3>
-          <p class="contact-hint" data-i18n="contact.qr.hint">掃碼加入玩家交流群</p>
           <img src="assets/xiaohongshu-qr.png" alt="小紅書玩家群二維碼" class="qr-img" />
+          <p class="contact-hint" data-i18n="contact.qr.hint">掃碼加入玩家交流群</p>
         </div>
-        <div class="contact-card contact-qr">
+        <div class="contact-card contact-qr contact-qr-wide">
           <h3 class="contact-label">DISCORD</h3>
-          <a class="contact-value" href="https://discord.gg/3pAjdSuek" target="_blank" rel="noopener noreferrer">ByteMate Games Community</a>
-          <p class="contact-hint">加入 Discord 玩家社區</p>
+          <div class="discord-content">
+            <a class="contact-value" href="https://discord.gg/u6kxJ8TcQ" target="_blank" rel="noopener noreferrer">ByteMate Games Community</a>
+            <p class="contact-hint" data-i18n="contact.discord.hint">加入 Discord 玩家社區</p>
+          </div>
         </div>
       </div>
     </section>
@@ -220,7 +236,7 @@
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> ByteMate Studio · <span data-i18n="footer.sub">由來自北京大學的學生組成</span></p>
+    <p>© <span id="year"></span> ByteMate Studio </p>
   </footer>
 
   <script src="assets/js/i18n.js"></script>
