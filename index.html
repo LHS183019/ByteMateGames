@@ -1,55 +1,53 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ByteMate — 来自北京大学的独立游戏工作室" />
-  <title>ByteMate — 独立游戏工作室</title>
+  <meta name="description" data-i18n="meta.description" content="ByteMate — 來自北京大學的獨立遊戲工作室" />
+  <title data-i18n="meta.title">ByteMate — 獨立遊戲工作室</title>
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body id="top">
 
-  <!-- ── Header / Banner ──
-       layout modeled on neocities-lhs183019:
-       - full-bleed banner image with a gradient overlay (top transparent → bottom black)
-       - social icons in the top-right corner
-       - subtitle / title / mono line stacked in the lower-middle -->
-  <header class="banner" id="banner">
-    <ul class="social-icons" aria-label="社交媒體">
-      <li><a href="#" aria-label="GitHub" title="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.1.79-.25.79-.56 0-.27-.01-1.16-.02-2.11-3.2.69-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.17a11.1 11.1 0 0 1 5.8 0c2.21-1.48 3.18-1.17 3.18-1.17.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5Z"/></svg>
-      </a></li>
-      <li><a href="#" aria-label="小紅書" title="小紅書">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 4h13A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4Zm.75 4v1.5h1.6V8h-1.6Zm0 3v5.5h1.6V11h-1.6Zm3-1.5h1.6v-1.5h-1.6V8h-1.6v6.5h1.6V11Zm5.5-3h-3v1.5h1.4v6.5h1.6V9.5h1.4V8h-1.4Zm-3 4.4v3.6h1.6v-3.6l-1.6-1.4 1.6-1.4V8.6l-1.6 1.4-1.6-1.4v1.4l1.6 1.4-1.6 1.4Z"/></svg>
-      </a></li>
-      <li><a href="#" aria-label="Email" title="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-      </a></li>
-    </ul>
+  <!-- ── Language Switcher — top-right, fixed ── -->
+  <div class="lang-switcher" aria-label="選擇語言">
+    <button class="lang-btn active" data-lang="zh-TW">繁</button>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <button class="lang-btn" data-lang="zh-CN">简</button>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
 
-    <div class="banner-content">
-      <p class="banner-subtitle">歡迎來到</p>
+  <!-- ── Banner — banner.png at 50% opacity as backdrop ── -->
+  <header class="banner" id="banner">
+    <div class="banner-img-wrap">
+      <img src="assets/banner.png" alt="ByteMate" class="banner-img" />
+    </div>
+
+    <div class="banner-overlay">
       <h1 class="banner-title">ByteMate</h1>
-      <p class="banner-mono">Indie Game Studio &nbsp;|&nbsp; Peking University</p>
+      <p class="banner-mono" data-i18n="banner.mono">Indie Game Studio &nbsp;|&nbsp; Peking University</p>
     </div>
   </header>
 
-  <!-- ── Navbar: icon centered between two nav clusters (sticky) ── -->
+  <!-- ── Navbar: brand icon isolated in its own vertical lane ── -->
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="navbar-inner">
       <ul class="nav-side nav-left" role="list">
-        <li><a class="nav-link active" href="#about">工作室簡介</a></li>
-        <li><a class="nav-link" href="#works">作品集</a></li>
+        <li><a class="nav-link active" href="#about" data-i18n="nav.about">工作室簡介</a></li>
+        <li><a class="nav-link" href="#works" data-i18n="nav.works">作品集</a></li>
       </ul>
 
-      <a class="brand" href="#top" aria-label="回到頂部">
-        <img src="assets/icon.png" alt="ByteMate Icon" class="brand-img" />
-      </a>
+      <div class="brand-col">
+        <a class="brand" href="#top" aria-label="回到頂部">
+          <img src="assets/icon.png" alt="ByteMate Icon" class="brand-img" />
+        </a>
+      </div>
 
       <ul class="nav-side nav-right" role="list">
-        <li><a class="nav-link" href="#team">工作室成員</a></li>
-        <li><a class="nav-link" href="#contact">聯絡我們</a></li>
+        <li><a class="nav-link" href="#team" data-i18n="nav.team">工作室成員</a></li>
+        <li><a class="nav-link" href="#contact" data-i18n="nav.contact">聯絡我們</a></li>
       </ul>
     </div>
   </nav>
@@ -58,21 +56,21 @@
 
     <!-- ── About ── -->
     <section id="about" class="section">
-      <h2 class="section-title">關於 ByteMate</h2>
+      <h2 class="section-title" data-i18n="about.title">關於 ByteMate</h2>
       <div class="section-line"></div>
       <div class="about-grid">
         <div class="about-card">
-          <h3>我們是誰</h3>
-          <p>ByteMate 是一支來自<strong>北京大學</strong>的獨立遊戲工作室，由大學室友與隔壁寢室的朋友組成。一次選課讓我們接觸到與電子遊戲相關的課程，自此結緣於遊戲開發的世界。</p>
-          <p>目前工作室成員均參與過<strong>未名造夢大賽</strong>，正在持續打磨我們的第一款敘事向作品。</p>
+          <h3 data-i18n="about.who.title">我們是誰</h3>
+          <p data-i18n="about.who.p1">ByteMate 是一支來自<strong>北京大學</strong>的獨立遊戲工作室，由大學室友與隔壁寢室的朋友組成。一次選課讓我們接觸到與電子遊戲相關的課程，自此結緣於遊戲開發的世界。</p>
+          <p data-i18n="about.who.p2">目前工作室成員均參與過<strong>未名造夢大賽</strong>，正在持續打磨我們的第一款敘事向作品。</p>
         </div>
         <div class="about-card">
-          <h3>我們做什麼</h3>
-          <p>我們專注於<strong>重敘事、卡牌、解謎</strong>類型的獨立遊戲。我們相信好的故事與獨特的玩法同樣重要，每一次出牌、每一次選擇，都應讓玩家記住。</p>
+          <h3 data-i18n="about.do.title">我們做什麼</h3>
+          <p data-i18n="about.do.p1">我們專注於<strong>重敘事、卡牌、解謎</strong>類型的獨立遊戲。我們相信好的故事與獨特的玩法同樣重要，每一次出牌、每一次選擇，都應讓玩家記住。</p>
           <ul class="bullet-list">
-            <li>原創 IP 與原創玩法設計</li>
-            <li>敘事驅動的單機體驗</li>
-            <li>從原型到發佈的全流程實踐</li>
+            <li data-i18n="about.do.bullet1">原創 IP 與原創玩法設計</li>
+            <li data-i18n="about.do.bullet2">敘事驅動的單機體驗</li>
+            <li data-i18n="about.do.bullet3">從原型到發佈的全流程實踐</li>
           </ul>
         </div>
       </div>
@@ -80,7 +78,7 @@
 
     <!-- ── Works ── -->
     <section id="works" class="section">
-      <h2 class="section-title">作品集</h2>
+      <h2 class="section-title" data-i18n="works.title">作品集</h2>
       <div class="section-line"></div>
 
       <article class="game-card">
@@ -90,85 +88,123 @@
         </div>
         <div class="game-info">
           <header class="game-header">
-            <h3 class="game-title">北大最強塔羅師</h3>
-            <p class="game-subtitle">Magician is all you need</p>
+            <h3 class="game-title" data-i18n="game.title">北大最強塔羅師</h3>
+            <p class="game-subtitle" data-i18n="game.subtitle">Magician is all you need</p>
           </header>
           <div class="tag-row" aria-label="作品標籤">
-            <span class="tag">卡牌</span>
-            <span class="tag">重敘事</span>
-            <span class="tag">視覺小說</span>
-            <span class="tag">解謎</span>
+            <span class="tag" data-i18n="game.tag1">卡牌</span>
+            <span class="tag" data-i18n="game.tag2">重敘事</span>
+            <span class="tag" data-i18n="game.tag3">視覺小說</span>
+            <span class="tag" data-i18n="game.tag4">解謎</span>
           </div>
-          <p class="game-desc">
+          <p class="game-desc" data-i18n="game.desc">
             在燕園的日常裡，每一副塔羅牌的翻開都是一次命運的提問。玩家將扮演一名初出茅廬的塔羅師，透過占卜、解讀與抉擇，串聯起一段跨越北大的奇幻敘事——所有相遇，所有告別，是否早已被星辰寫好？
           </p>
           <p class="game-meta">
-            <span>Windows</span><span class="dot">·</span>
-            <span>簡體中文</span><span class="dot">·</span>
-            <span>已發佈</span>
+            <span data-i18n="game.platform">Windows</span><span class="dot">·</span>
+            <span data-i18n="game.lang">簡體中文</span><span class="dot">·</span>
+            <span data-i18n="game.status">已發佈</span>
           </p>
           <a class="btn-download" href="assets/magicianCN.zip" download>
             <span class="dl-icon" aria-hidden="true">↓</span>
             <span class="dl-text">
-              <span class="dl-main">下載遊戲</span>
-              <span class="dl-sub">magicianCN.zip · 約 494 MB</span>
+              <span class="dl-main" data-i18n="game.download">下載遊戲</span>
+              <span class="dl-sub">magicianCN.zip · 494 MB</span>
             </span>
           </a>
         </div>
       </article>
 
-      <p class="coming-soon">更多作品敬請期待⋯⋯</p>
+      <p class="coming-soon" data-i18n="works.coming">更多作品敬請期待⋯⋯</p>
     </section>
 
     <!-- ── Team ── -->
     <section id="team" class="section">
-      <h2 class="section-title">工作室成員</h2>
+      <h2 class="section-title" data-i18n="team.title">工作室成員</h2>
       <div class="section-line"></div>
       <div class="member-grid">
         <article class="member-card">
           <div class="member-portrait" aria-hidden="true"><span>A</span></div>
-          <h3 class="member-name">成員 A</h3>
-          <p class="member-role">策劃</p>
-          <p class="member-hobby">愛好：桌遊 / 影視 / 寫作</p>
-          <p class="member-bio">負責玩法框架與敘事設計，喜歡把奇思妙想變成可玩的關卡。</p>
+          <h3 class="member-name" data-i18n="team.a.name">成員 A</h3>
+          <p class="member-role" data-i18n="team.a.role">策劃</p>
+          <p class="member-hobby" data-i18n="team.a.hobby">愛好：桌遊 / 影視 / 寫作</p>
+          <p class="member-bio" data-i18n="team.a.bio">負責玩法框架與敘事設計，喜歡把奇思妙想變成可玩的關卡。</p>
         </article>
         <article class="member-card">
           <div class="member-portrait" aria-hidden="true"><span>B</span></div>
-          <h3 class="member-name">成員 B</h3>
-          <p class="member-role">程序</p>
-          <p class="member-hobby">愛好：電子音樂 / 程式競賽 / 貓</p>
-          <p class="member-bio">負責引擎與工具鏈搭建，把策劃的腦洞變成實際運行起來的程式碼。</p>
+          <h3 class="member-name" data-i18n="team.b.name">成員 B</h3>
+          <p class="member-role" data-i18n="team.b.role">程序</p>
+          <p class="member-hobby" data-i18n="team.b.hobby">愛好：電子音樂 / 程式競賽 / 貓</p>
+          <p class="member-bio" data-i18n="team.b.bio">負責引擎與工具鏈搭建，把策劃的腦洞變成實際運行起來的程式碼。</p>
         </article>
         <article class="member-card">
           <div class="member-portrait" aria-hidden="true"><span>C</span></div>
-          <h3 class="member-name">成員 C</h3>
-          <p class="member-role">美術</p>
-          <p class="member-hobby">愛好：插畫 / 動畫 / 膠片攝影</p>
-          <p class="member-bio">負責角色、UI 與視覺風格，把世界觀凝結成每一幀畫面。</p>
+          <h3 class="member-name" data-i18n="team.c.name">成員 C</h3>
+          <p class="member-role" data-i18n="team.c.role">美術</p>
+          <p class="member-hobby" data-i18n="team.c.hobby">愛好：插畫 / 動畫 / 膠片攝影</p>
+          <p class="member-bio" data-i18n="team.c.bio">負責角色、UI 與視覺風格，把世界觀凝結成每一幀畫面。</p>
         </article>
       </div>
-      <p class="member-note">（成員姓名、头像、介紹可後續替換為真實信息）</p>
+      <p class="member-note" data-i18n="team.note">（成員姓名、头像、介紹可後續替換為真實信息）</p>
+    </section>
+
+    <!-- ── Join Us ── -->
+    <section id="join" class="section">
+      <h2 class="section-title" data-i18n="join.title">加入我們</h2>
+      <div class="section-line"></div>
+      <p class="join-intro" data-i18n="join.intro">如果你對獨立遊戲開發充滿熱情，歡迎加入 ByteMate！我們目前正在尋找以下志同道合的夥伴：</p>
+
+      <div class="join-grid">
+        <article class="join-card">
+          <div class="join-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="join-role" data-i18n="join.art.title">2D 遊戲美術</h3>
+          <p class="join-desc" data-i18n="join.art.desc">負責遊戲角色、場景、道具的視覺呈現。我們希望你熟悉像素風格或日系插畫，有良好的色彩感與構圖能力，並能根據遊戲風格定制 UI / 交互反饋。無論是手繪、矢量還是像素，我們更看重的是創意與對遊戲視覺傳達的熱情。</p>
+        </article>
+        <article class="join-card">
+          <div class="join-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 1 1 3.5 2.98v.52"/><path d="M6 18c-2 0-3-1-3-3"/><path d="M18 18c2 0 3-1 3-3"/></svg>
+          </div>
+          <h3 class="join-role" data-i18n="join.audio.title">遊戲音樂 / 音效</h3>
+          <p class="join-desc" data-i18n="join.audio.desc">為遊戲創作原創 BGM 與環境音效，配合敘事節奏調製情緒。我們希望你熟悉 DAW 工具（FL Studio、Logic、Cubase 等）或有音效合成經驗，能駕馭暗黑敘事與奇幻風格的音樂。無需專業設備，有想法、有作品就夠。</p>
+        </article>
+        <article class="join-card">
+          <div class="join-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="join-role" data-i18n="join.writing.title">文案創作</h3>
+          <p class="join-desc" data-i18n="join.writing.desc">撰寫遊戲內對話、場景描述、世界觀文案，把策劃的框架填充成有溫度的文字。我們希望你熱愛閱讀與寫作，對文字節奏敏感，能駕馭不同的語氣與風格。無論是輕鬆的日常對白還是沉重的情感高潮，你都能找到最準確的表達方式。</p>
+        </article>
+      </div>
+
+      <div class="join-cta">
+        <a class="btn-join" href="https://forms.example.com/bytemate-join" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="join.btn">填寫報名表 →</span>
+        </a>
+        <p class="join-note" data-i18n="join.note">報名表為外部表單連結，請替換為真實表單 URL</p>
+      </div>
     </section>
 
     <!-- ── Contact ── -->
     <section id="contact" class="section">
-      <h2 class="section-title">聯絡我們</h2>
+      <h2 class="section-title" data-i18n="contact.title">聯絡我們</h2>
       <div class="section-line"></div>
       <div class="contact-grid">
         <div class="contact-card">
-          <h3 class="contact-label">電郵</h3>
+          <h3 class="contact-label" data-i18n="contact.email.label">電郵</h3>
           <a class="contact-value" href="mailto:contact@bytemate.studio">contact@bytemate.studio</a>
-          <p class="contact-hint">商務合作 / 採訪 / 玩家反饋</p>
+          <p class="contact-hint" data-i18n="contact.email.hint">商務合作 / 採訪 / 玩家反饋</p>
         </div>
         <div class="contact-card">
-          <h3 class="contact-label">小紅書</h3>
+          <h3 class="contact-label" data-i18n="contact.xhs.label">小紅書</h3>
           <p class="contact-value">@ByteMateStudio</p>
-          <p class="contact-hint">搜尋關鍵詞：ByteMate / 北大最強塔羅師</p>
+          <p class="contact-hint" data-i18n="contact.xhs.hint">搜尋關鍵詞：ByteMate / 北大最強塔羅師</p>
         </div>
         <div class="contact-card contact-qr">
-          <h3 class="contact-label">小紅書玩家交流群</h3>
+          <h3 class="contact-label" data-i18n="contact.qr.label">小紅書玩家交流群</h3>
           <img src="assets/xiaohongshu-qr.svg" alt="小紅書玩家群二維碼占位" class="qr-img" />
-          <p class="contact-hint">掃碼加入玩家交流群（占位圖，請替換為真實二維碼）</p>
+          <p class="contact-hint" data-i18n="contact.qr.hint">掃碼加入玩家交流群（占位圖，請替換為真實二維碼）</p>
         </div>
       </div>
     </section>
@@ -176,9 +212,10 @@
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> ByteMate Studio · 由來自北京大學的學生組成</p>
+    <p>© <span id="year"></span> ByteMate Studio · <span data-i18n="footer.sub">由來自北京大學的學生組成</span></p>
   </footer>
 
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

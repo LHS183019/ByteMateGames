@@ -32,15 +32,6 @@
 
     sections.forEach(function (sec) { observer.observe(sec); });
   } else {
-    // fallback: just activate the first link
     if (navLinks.length) navLinks[0].classList.add("active");
   }
-
-  // ── Reset active on direct anchor click (before scroll lands) ──
-  navLinks.forEach(function (link) {
-    link.addEventListener("click", function () {
-      navLinks.forEach(function (l) { l.classList.remove("active"); });
-      link.classList.add("active");
-    });
-  });
 })();

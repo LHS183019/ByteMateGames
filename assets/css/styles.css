@@ -1,10 +1,5 @@
 /* ===================================================================
    ByteMate Studio — black + dark gold, single-page scroll
-   Header pattern modeled on neocities-lhs183019 (JohnDoe template):
-   - .banner: 80vh, full-bleed banner image with dark gradient overlay,
-              social icons top-right, subtitle / title / mono stacked center-bottom
-   - .navbar: sticky, icon centered between left/right nav clusters
-   - sections: flat, scroll-spy highlights the active nav link
    =================================================================== */
 
 :root {
@@ -31,7 +26,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 78px; /* keep anchor target below the sticky nav */
+  scroll-padding-top: 78px;
 }
 
 body {
@@ -49,64 +44,141 @@ img { display: block; max-width: 100%; }
 ::selection { background: var(--gold); color: var(--bg); }
 
 /* ──────────────────────────────────────────────
-   Banner / Header
-   Full-bleed banner image, 80vh tall, dark gradient overlay so the
-   gold logo blends with the page background without losing visibility.
+   Language Switcher — top-right, fixed position
+   ────────────────────────────────────────────── */
+.lang-switcher {
+  position: fixed;
+  top: 14px;
+  right: 70px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  padding: 2px 5px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 180ms;
+  line-height: 1;
+}
+.lang-btn:hover { color: var(--gold); }
+.lang-btn.active { color: var(--gold); font-weight: 700; }
+
+.lang-sep {
+  color: var(--line);
+  font-size: 11px;
+  user-select: none;
+}
+
+/* ──────────────────────────────────────────────
+   Banner — banner.png at 50% opacity as backdrop
    ────────────────────────────────────────────── */
 .banner {
   position: relative;
   width: 100%;
-  height: 80vh;
-  min-height: 540px;
-
-  /* banner image filling the entire header */
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.55) 0%,
-      rgba(0,0,0,0.55) 40%,
-      rgba(0,0,0,0.85) 100%
-    ),
-    url("assets/banner.png") center 35% / cover no-repeat,
-    #000;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  margin: 0 auto;
+  background: #000;
   overflow: hidden;
 }
 
-/* subtle vignette on top so the gold logo glows */
-.banner::after {
-  content: "";
+.banner-img-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 50% opacity — banner as semi-transparent backdrop */
+.banner-img {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 38%, transparent 0%, rgba(0,0,0,0.45) 75%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+  opacity: 0.18;
+}
+
+/* dark gradient so overlay text pops */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
   pointer-events: none;
 }
 
-/* social icons row, top-right corner — sits above the overlay */
+.banner-title {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 8vw, 88px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.9), 0 0 60px rgba(212,160,23,0.25);
+}
+
+.banner-mono {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.5vw, 15px);
+  letter-spacing: 0.45em;
+  color: var(--gold);
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px #000;
+}
+
+/* social icons sit over the banner */
 .social-icons {
   position: absolute;
-  top: 22px;
-  right: 28px;
-  z-index: 2;
+  top: 16px;
+  right: 20px;
+  z-index: 4;
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 .social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--gold-soft);
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(212,160,23,0.7);
   border-radius: 50%;
   color: var(--gold);
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   transition: background 200ms, color 200ms, transform 200ms;
 }
 .social-icons a:hover {
@@ -115,45 +187,6 @@ img { display: block; max-width: 100%; }
   transform: translateY(-2px);
 }
 .social-icons svg { width: 16px; height: 16px; }
-
-.banner-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 0 24px 80px;
-  color: #fff;
-  max-width: 880px;
-}
-
-.banner-subtitle {
-  font-family: var(--font-display);
-  font-size: clamp(16px, 2.2vw, 22px);
-  font-weight: 300;
-  color: var(--gold);
-  letter-spacing: 0.18em;
-  margin: 0 0 14px;
-  text-transform: uppercase;
-}
-
-.banner-title {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 9vw, 96px);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  line-height: 1;
-  margin: 0 0 22px;
-  color: #fff;
-  text-shadow: 0 4px 40px var(--gold-glow), 0 0 80px rgba(212,160,23,0.18);
-}
-
-.banner-mono {
-  font-family: var(--font-mono);
-  font-size: clamp(11px, 1.5vw, 14px);
-  letter-spacing: 0.4em;
-  color: var(--gold);
-  margin: 0;
-  text-transform: uppercase;
-}
 
 /* ──────────────────────────────────────────────
    Sticky Navbar — icon centered between nav clusters
@@ -171,17 +204,20 @@ img { display: block; max-width: 100%; }
 .navbar-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 12px 24px;
+  padding: 10px 24px;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  /* 3-column: [nav links] [brand icon column] [nav links]
+     The brand column is fixed-width so the icon can be large
+     without shifting the surrounding nav links. */
+  grid-template-columns: 1fr 160px 1fr;
   align-items: center;
-  gap: 24px;
+  gap: 0;
 }
 
 .nav-side {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
   display: flex;
   gap: 32px;
 }
@@ -192,7 +228,7 @@ img { display: block; max-width: 100%; }
   display: inline-block;
   padding: 8px 4px;
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 17px;
   letter-spacing: 0.16em;
   color: var(--muted);
   text-transform: uppercase;
@@ -213,23 +249,31 @@ img { display: block; max-width: 100%; }
 .nav-link.active { color: var(--gold); }
 .nav-link.active::after { left: 0; right: 0; }
 
+/* brand icon lives in its own fixed-width column */
+.brand-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 .brand-img {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 2px solid var(--gold);
-  background: #000;
-  padding: 4px;
-  transition: transform 200ms var(--ease-out), box-shadow 200ms;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background: transparent;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  transition: transform 200ms var(--ease-out);
 }
 .brand:hover .brand-img {
-  transform: scale(1.06);
-  box-shadow: 0 0 20px var(--gold-glow);
+  transform: scale(1.04);
 }
 
 /* ── Main ── */
@@ -239,12 +283,9 @@ img { display: block; max-width: 100%; }
   padding: 0 24px;
 }
 
-.section {
-  padding: 90px 0 80px;
-}
+.section { padding: 90px 0 80px; }
 .section + .section { border-top: 1px solid var(--line); }
 
-/* ── Section titles ── */
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(26px, 4vw, 40px);
@@ -373,7 +414,6 @@ img { display: block; max-width: 100%; }
 }
 
 .game-desc { color: var(--text); margin: 0 0 16px; }
-
 .game-meta {
   display: flex;
   flex-wrap: wrap;
@@ -479,6 +519,98 @@ img { display: block; max-width: 100%; }
   font-style: italic;
 }
 
+/* ── Join Us ── */
+.join-intro {
+  max-width: 680px;
+  margin: 0 auto 48px;
+  text-align: center;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.join-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.join-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  transition: border-color 220ms var(--ease-out), transform 220ms var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.join-card:hover { border-color: var(--gold-soft); transform: translateY(-3px); }
+
+.join-icon {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--gold-soft);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: rgba(212,160,23,0.06);
+  flex-shrink: 0;
+}
+.join-icon svg { width: 24px; height: 24px; }
+
+.join-role {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin: 0;
+  text-transform: uppercase;
+}
+.join-desc { color: var(--text); margin: 0; font-size: 14px; line-height: 1.75; }
+
+.join-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-join {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  transition: background 220ms, color 220ms, transform 180ms, box-shadow 220ms;
+  font-weight: 600;
+}
+.btn-join:hover {
+  background: var(--gold);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--gold-glow);
+}
+
+.join-note {
+  font-size: 12px;
+  color: var(--muted-2);
+  margin: 0;
+  font-style: italic;
+  text-align: center;
+}
+
 /* ── Contact ── */
 .contact-grid {
   display: grid;
@@ -539,27 +671,38 @@ a.contact-value:hover { color: var(--gold-bright); }
 
 /* ── Mobile ── */
 @media (max-width: 720px) {
-  .banner { height: 70vh; min-height: 460px; background-position: center 30%; }
-  .social-icons { top: 14px; right: 14px; }
-  .banner-content { padding: 0 16px 56px; }
+  .lang-switcher {
+    top: 10px;
+    right: 14px;
+    padding: 4px 10px;
+  }
+  .lang-btn { font-size: 11px; padding: 2px 3px; }
+
+  .banner-img-wrap { aspect-ratio: auto; max-height: 50vh; }
+  .banner-img { object-fit: contain; opacity: 0.65; }
   .banner-title { letter-spacing: 0.12em; }
+
+  .social-icons { top: 12px; right: 12px; gap: 8px; }
+  .social-icons a { width: 34px; height: 34px; }
+
   .navbar { position: static; }
   .navbar-inner {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 10px 16px;
+    grid-template-columns: 1fr 100px 1fr;
+    padding: 8px 16px;
   }
-  .nav-side { justify-content: center; flex-wrap: wrap; gap: 16px; }
+  .nav-side { justify-content: center; flex-wrap: wrap; gap: 16px; padding: 0 10px; }
   .nav-link { font-size: 11px; padding: 6px 2px; }
-  .brand-img { width: 46px; height: 46px; }
+  .brand-col { height: 110px; }
+  .brand-img { width: 100px; height: 100px; }
   .section { padding: 60px 0 56px; }
   .game-card { padding: 20px; }
   .game-icon-corner { width: 64px; height: 64px; bottom: 8px; right: 8px; }
   .btn-download { width: 100%; justify-content: center; }
   .qr-img { width: 148px; height: 148px; }
+  .join-grid { grid-template-columns: 1fr; }
+  .btn-join { width: 100%; justify-content: center; }
 }
 
-/* prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
