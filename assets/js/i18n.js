@@ -19,6 +19,7 @@
       /* nav */
       "nav.about":    "工作室簡介",
       "nav.works":    "作品集",
+      "nav.partners": "合作夥伴",
       "nav.team":     "工作室成員",
       "nav.contact":  "聯絡我們",
       /* about */
@@ -60,6 +61,8 @@
       "team.c.hobby":  "國畫 / 配音 / 民俗學",
       "team.c.bio":    "負責國風人設和故事寫作，以及寫點 UI 什麽的",
       "team.note":     "團隊性別結構：100% 女",
+      /* partners */
+      "partners.title": "合作夥伴",
       /* join */
       "join.title":   "加入我們",
       "join.intro":   "歡迎加入 ByteMate！我們目前正在尋找以下志同道合的夥伴：",
@@ -93,6 +96,7 @@
       /* nav */
       "nav.about":    "工作室简介",
       "nav.works":    "作品集",
+      "nav.partners": "合作伙伴",
       "nav.team":     "工作室成员",
       "nav.contact":  "联系我们",
       /* about */
@@ -134,6 +138,8 @@
       "team.c.hobby":  "国画 / 配音 / 民俗学",
       "team.c.bio":    "负责国风人设和故事写作，以及写点 UI 什么的",
       "team.note":     "团队性别结构：100% 女",
+      /* partners */
+      "partners.title": "合作伙伴",
       /* join */
       "join.title":   "加入我们",
       "join.intro":   "欢迎加入 ByteMate！我们目前正在寻找以下志同道合的伙伴：",
@@ -167,6 +173,7 @@
       /* nav */
       "nav.about":    "About",
       "nav.works":    "Works",
+      "nav.partners": "Partners",
       "nav.team":     "Team",
       "nav.contact":  "Contact",
       /* about */
@@ -208,6 +215,8 @@
       "team.c.hobby":  "Chinese Painting / Voice Acting / Folklore Studies",
       "team.c.bio":    "Responsible for Chinese-style character design and story writing, plus a bit of UI work.",
       "team.note":     "Team gender composition: 100% female",
+      /* partners */
+      "partners.title": "Partners",
       /* join */
       "join.title":   "Join Us",
       "join.intro":   "Welcome to join ByteMate! We're currently looking for the following teammates:",

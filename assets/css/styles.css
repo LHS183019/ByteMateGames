@@ -359,6 +359,16 @@
     text-align: center;
     font-weight: 600;
   }
+  .section-sub-title {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.5vw, 26px);
+    letter-spacing: 0.18em;
+    color: var(--gold-soft);
+    margin: 64px 0 14px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+  }
   .section-line {
     width: 52px;
     height: 2px;
@@ -418,17 +428,15 @@
     background: var(--bg-2);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 32px;
+    padding: 20px;
     align-items: start;
   }
   @media (min-width: 780px) {
-    .game-card { grid-template-columns: 1fr 1fr; gap: 44px; padding: 40px; }
+    .game-card { grid-template-columns: 1fr 1fr; gap: 44px; padding: 20px; }
   }
   
   .game-media {
     position: relative;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
     overflow: hidden;
     background: #000;
   }
@@ -583,7 +591,63 @@
   .dl-text { display: flex; flex-direction: column; line-height: 1.2; }
   .dl-main { font-size: 14px; }
   .dl-sub  { font-size: 10px; opacity: 0.72; letter-spacing: 0.06em; font-family: var(--font-mono); }
-  
+
+  .contributor-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .contributor-row--media {
+    margin-top: 20px;
+  }
+
+  .contributor-row--header {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 430px){
+    .carousel-btn {
+      display: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .contributor-row--media { display: none; }
+    .contributor-row--header {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 0px;
+      margin-bottom: 26px;
+    }
+    .game-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 16px;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .contributor-row--media { display: flex; }
+    .contributor-row--header { display: none; }
+  }
+
+  .contributor-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+    object-fit: cover;
+    transition: border-color 220ms;
+    background: var(--bg-2);
+  }
+  .contributor-avatar:hover { border-color: var(--gold-soft); }
+
   .coming-soon {
     text-align: center;
     color: var(--muted);
@@ -655,6 +719,53 @@
     font-style: italic;
   }
   
+  /* ── Partners ── */
+  .partner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px 32px;
+    padding: 10px 0 6px;
+  }
+
+  .partner-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 220ms var(--ease-out);
+    width: 80px;
+  }
+  .partner-link:hover { transform: translateY(-4px); }
+  .partner-link:hover .partner-avatar-ring { border-color: var(--gold); }
+
+  .partner-avatar-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--line);
+    overflow: hidden;
+    background: var(--bg-2);
+    transition: border-color 220ms;
+  }
+  .partner-avatar-ring img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .partner-name {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-align: center;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
   /* ── Join Us ── */
   .join-intro {
     max-width: 680px;

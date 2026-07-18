@@ -6,6 +6,34 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  // ── Partners ──
+  var PARTNERS = [
+    { name: "suH", avatar: "assets/partner/avatar-suH.png", url: "https://xhslink.com/m/jADoTh88pc" }
+  ];
+
+  function renderPartners() {
+    var grid = document.getElementById("partner-grid");
+    if (!grid) return;
+    PARTNERS.forEach(function (p) {
+      var a = document.createElement("a");
+      a.className = "partner-link";
+      a.href = p.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.title = p.name;
+      a.innerHTML =
+        '<div class="partner-avatar-ring"><img src="' + p.avatar + '" alt="' + p.name + '" /></div>' +
+        '<span class="partner-name">' + p.name + "</span>";
+      grid.appendChild(a);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderPartners);
+  } else {
+    renderPartners();
+  }
+
   // ── Scroll-spy: highlight nav link as sections enter viewport ──
   var sections = Array.prototype.slice.call(
     document.querySelectorAll("section[id]")
